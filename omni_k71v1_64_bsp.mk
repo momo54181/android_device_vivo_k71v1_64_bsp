@@ -31,7 +31,7 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := k71v1_64_bsp
-PRODUCT_NAME := twrp_k71v1_64_bsp
+PRODUCT_NAME := omni_k71v1_64_bsp
 PRODUCT_BRAND := vivo
 PRODUCT_MODEL := vivo
 PRODUCT_MANUFACTURER := vivo

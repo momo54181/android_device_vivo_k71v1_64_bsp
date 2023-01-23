@@ -43,4 +43,4 @@
 /odmdtbo            emmc      /dev/block/platform/bootdevice/by-name/odmdtbo                        flags=display="Odmdtbo";
 /dtbo               emmc      /dev/block/platform/bootdevice/by-name/dtbo                           flags=display="Dtbo";backup=1;flashimg=1;
 /otp                emmc      /dev/block/platform/bootdevice/by-name/otp                            flags=display="Otp";
-/external_sd	      vfat      /dev/block/mmcblk1p1    /dev/block/mmcblk1			                    	flags=display="Micro SDCard";storage;wipeingui;removable
+/external_sd        vfat      /dev/block/mmcblk1p1    /dev/block/mmcblk1                            flags=display="Micro SDCard";storage;wipeingui;removable

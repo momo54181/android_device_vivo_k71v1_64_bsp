@@ -4,3 +4,10 @@ ro.vivo.hardware.version=PD1813F_EXMA
 ro.hardware.bbk=PD1813F_EXMA
 ro.vivo.os.version=11.0
 ro.vivo.oem.name=PD1813F_CN-ZH_FULL_SC_CT-BMW
+# Recovery specific properties
+ro.secure=0
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+persist.service.debuggable=1

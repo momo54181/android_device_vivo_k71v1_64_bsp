@@ -74,6 +74,9 @@ TARGET_KERNEL_CONFIG := k71v1_64_bsp_defconfig
 # Platform
 TARGET_BOARD_PLATFORM := mt6771
 
+# System as Root
+BOARD_SUPPRESS_SECURE_ERASE := true
+
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
@@ -85,3 +88,7 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true

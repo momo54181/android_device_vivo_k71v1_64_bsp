@@ -1,5 +1,5 @@
 # mount point       fstype    device      
-/boot_para	          emmc	   /dev/block/platform/bootdevice/by-name/boot_para	flags=display=boot_para
+/boot_para	              emmc	   /dev/block/platform/bootdevice/by-name/boot_para	    flags=display=boot_para
 /oem                      ext4     /dev/block/platform/bootdevice/by-name/cust          flags=display=oem
 /system                   ext4     /dev/block/platform/bootdevice/by-name/system        flags=display="System";wipeingui;
 /system_image             emmc     /dev/block/platform/bootdevice/by-name/system        flags=display="System image";flashimg=1;
@@ -7,11 +7,11 @@
 /vendor_image             emmc     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor image";flashimg=1;
 /data                     ext4     /dev/block/platform/bootdevice/by-name/userdata      flags=encryptable=/dev/block/platform/bootdevice/by-name/metadata
 /cache                    ext4     /dev/block/platform/bootdevice/by-name/cache         flags=display=cache
-/mnt/vendor/protect_f     ext4     /dev/block/platform/bootdevice/by-name/protect1      flags=display=protect_f
-/mnt/vendor/protect_s     ext4     /dev/block/platform/bootdevice/by-name/protect2      flags=display=protect_s
-/mnt/vendor/nvdata        ext4     /dev/block/platform/bootdevice/by-name/nvdata        flags=display=nvdata
-/mnt/vendor/nvcfg         ext4     /dev/block/platform/bootdevice/by-name/nvcfg         flags=display=nvcfg
-/mnt/vendor/persist       ext4     /dev/block/platform/bootdevice/by-name/persist       flags=display=persist
+/protect_f                ext4     /dev/block/platform/bootdevice/by-name/protect1      flags=display=protect_f
+/protect_s                ext4     /dev/block/platform/bootdevice/by-name/protect2      flags=display=protect_s
+/nvdata                   ext4     /dev/block/platform/bootdevice/by-name/nvdata        flags=display=nvdata
+/nvcfg                    ext4     /dev/block/platform/bootdevice/by-name/nvcfg         flags=display=nvcfg
+/persist                  ext4     /dev/block/platform/bootdevice/by-name/persist       flags=display=persist
 /persist_image            emmc     /dev/block/platform/bootdevice/by-name/persist       flags=display="Persist image";backup=1;flashimg=1;
 /persistent               emmc     /dev/block/platform/bootdevice/by-name/frp           flags=display=persistent
 /nvram                    emmc     /dev/block/platform/bootdevice/by-name/nvram         flags=display=nvram

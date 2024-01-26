@@ -25,10 +25,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from k71v1_64_bsp device
 $(call inherit-product, device/vivo/k71v1_64_bsp/device.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := k71v1_64_bsp
 PRODUCT_NAME := omni_k71v1_64_bsp

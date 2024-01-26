@@ -1,4 +1,5 @@
 # Android device tree for vivo vivo 1806 (k71v1_64_bsp)
+==========================================
 
 ```
 #

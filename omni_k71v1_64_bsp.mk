@@ -33,6 +33,6 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 PRODUCT_DEVICE := k71v1_64_bsp
 PRODUCT_NAME := omni_k71v1_64_bsp
 PRODUCT_BRAND := vivo
-PRODUCT_MODEL := vivo
+PRODUCT_MODEL := vivo 1806
 PRODUCT_MANUFACTURER := vivo
-PRODUCT_RELEASE_NAME := vivo vivo
+PRODUCT_RELEASE_NAME := vivo 1806

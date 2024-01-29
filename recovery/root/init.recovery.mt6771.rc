@@ -19,6 +19,10 @@ on init
     start hwservicemanager
     start vndservicemanager
     start ashmemd
+
+on boot
+    chown system /sys/vforce/cali_coef
+    chmod 0644 /sys/vforce/cali_coef
     
 on post-fs
     chown system system /mnt/vendor/persist
@@ -92,6 +96,16 @@ service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymas
     group system
     disabled
 
+service vivo-capacity_key-hal-1-0 /vendor/bin/hw/vendor.vivo.hardware.capacity_key@1.0-service
+    class hal
+    user system
+    group system
+
+service vendor.sectee /vendor/bin/hw/vendor.vivo.hardware.sectee@1.0-service
+#    class late_start
+    class main
+    user system
+    group system
 
 
 on property:recovery.emergent_mode=1

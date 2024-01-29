@@ -77,6 +77,7 @@ TARGET_KERNEL_CONFIG := k71v1_64_bsp_defconfig
 TARGET_BOARD_PLATFORM := mt6771
 
 # Hack: prevent anti rollback
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0

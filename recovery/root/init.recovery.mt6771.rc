@@ -81,21 +81,19 @@ service tombstoned /sbin/tombstoned
 
 service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
     interface vendor.mediatek.hardware.keymaster_attestation@1.1::IKeymasterDevice default
-    class hal
-    user system
-    group system
     disabled
+    user root
+    seclabel u:r:recovery:s0
 
 service vivo-capacity_key-hal-1-0 /vendor/bin/hw/vendor.vivo.hardware.capacity_key@1.0-service
-    class hal
-    user system
-    group system
+    disabled
+    user root
+    seclabel u:r:recovery:s0
 
 service vendor.sectee /vendor/bin/hw/vendor.vivo.hardware.sectee@1.0-service
-#    class late_start
-    class main
-    user system
-    group system
+    disabled
+    user root
+    seclabel u:r:recovery:s0
 
 
 on property:recovery.emergent_mode=1

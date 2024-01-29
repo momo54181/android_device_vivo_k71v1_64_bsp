@@ -1,5 +1,3 @@
-ro.secure=0
-ro.debuggable=1
 ro.mediatek.platform=MT6771
 ro.mtk_tee_gp_support=1
 ro.mtk_microtrust_tee_support=1

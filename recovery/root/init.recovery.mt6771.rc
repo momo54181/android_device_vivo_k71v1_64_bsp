@@ -207,6 +207,9 @@ on property:hwservicemanager.ready=true
 
     start wait_for_keymaster
     start keymaster-3-0
+    start vendor.keymaster-3-0-trustonic
+    start keymaster-4-0
+    start vendor.keymaster-4-0-trustonic
     start gatekeeper-1-0
 
 
@@ -214,6 +217,9 @@ on property:ro.crypto.state=unsupported
 
     stop wait_for_keymaster
     stop keymaster-3-0
+    stop vendor.keymaster-3-0-trustonic
+    stop keymaster-4-0
+    stop vendor.keymaster-4-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
@@ -223,6 +229,9 @@ on property:ro.crypto.state=unencrypted
 
     stop wait_for_keymaster
     stop keymaster-3-0
+    stop vendor.keymaster-3-0-trustonic
+    stop keymaster-4-0
+    stop vendor.keymaster-4-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager

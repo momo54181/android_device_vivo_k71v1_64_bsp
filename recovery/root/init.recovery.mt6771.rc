@@ -172,6 +172,19 @@ service health-hal-2-0 /vendor/bin/hw/android.hardware.health@2.0-service
     group root
     seclabel u:r:recovery:s0
 
+service tee-1-0 /vendor/bin/hw/vendor.trustonic.tee@1.0-service
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service teeregistry-1-0 /vendor/bin/hw/vendor.trustonic.teeregistry@1.0-service
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+
 # Start Daemon (Registry directories should already be present)
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
 	-r /vendor/app/mcRegistry/06090000000000000000000000000000.drbin \
@@ -213,6 +226,8 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 
 on property:hwservicemanager.ready=true
 
+    start tee-1-0
+    start teeregistry-1-0
     start wait_for_keymaster
     start keymaster-3-0
     start vendor.keymaster-3-0-trustonic
@@ -223,6 +238,8 @@ on property:hwservicemanager.ready=true
 
 on property:ro.crypto.state=unsupported
 
+    stop tee-1-0
+    stop teeregistry-1-0
     stop wait_for_keymaster
     stop keymaster-3-0
     stop vendor.keymaster-3-0-trustonic
@@ -235,6 +252,8 @@ on property:ro.crypto.state=unsupported
 
 on property:ro.crypto.state=unencrypted
 
+    stop tee-1-0
+    stop teeregistry-1-0
     stop wait_for_keymaster
     stop keymaster-3-0
     stop vendor.keymaster-3-0-trustonic

@@ -202,3 +202,29 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 07407000000000000000000000000000.drbin : sensor
 # 04020000000000000000000000000000.drbin : fpc
 # 06090000000000000000000000000000.drbin : drm keyinstall
+
+on property:hwservicemanager.ready=true
+
+    start wait_for_keymaster
+    start keymaster-3-0
+    start gatekeeper-1-0
+
+
+on property:ro.crypto.state=unsupported
+
+    stop wait_for_keymaster
+    stop keymaster-3-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager
+    stop wait_for_keymaster
+
+on property:ro.crypto.state=unencrypted
+
+    stop wait_for_keymaster
+    stop keymaster-3-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager
+    stop wait_for_keymaster
+

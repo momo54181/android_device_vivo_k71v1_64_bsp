@@ -84,11 +84,6 @@ service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster
     user system
     group system drmrpc
 
-service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-    class hal
-    user system
-    group system
-
 service keymaster_attestation-1-1 /vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
     interface vendor.mediatek.hardware.keymaster_attestation@1.1::IKeymasterDevice default
     class hal

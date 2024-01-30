@@ -64,7 +64,7 @@ service servicemanager /sbin/servicemanager
     user root
     seclabel u:r:recovery:s0
 
-service IServiceManager /sbin/TEST_IServiceManager
+service iservicemanager /sbin/TEST_IServiceManager
     disabled
     user root
     seclabel u:r:recovery:s0

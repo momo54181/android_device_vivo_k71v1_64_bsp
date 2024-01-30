@@ -14,7 +14,6 @@ ro.product.vendor.manufacturer=vivo
 ro.product.vendor.model=vivo 1806
 ro.product.vendor.name=full_k71v1_64_bsp
 ro.vendor.mtk_tee_gp_support=1
-ro.hardware.kmsetkey=trustonic
 ro.vendor.mtk_trustonic_tee_support=1
 ro.vendor.vivo.product.platform=MTK6771
 ro.vendor.vivo.product.solution=MTK

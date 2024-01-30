@@ -2,7 +2,7 @@
 ==========================================
 ### Device specifications
 
-| Device                  |         Oppo A5S                                              |
+| Device                  |         Vivo V11i                                             |
 | ----------------------: | :------------------------------------------------------------ |
 | SoC                     | MediaTek Helio P60 (MT6771)                                   |
 | CPU                     | 4x 2.0 GHz ARM Cortex-A53, 4x 1.8 GHz ARM Cortex-A53          |

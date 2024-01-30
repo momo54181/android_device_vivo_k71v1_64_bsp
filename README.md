@@ -6,7 +6,7 @@
 | ----------------------: | :------------------------------------------------------------ |
 | SoC                     | MediaTek Helio P60 (MT6771)                                   |
 | CPU                     | 4x 2.0 GHz ARM Cortex-A53, 4x 1.8 GHz ARM Cortex-A53          |
-| GPU                     | Mali-G72 MP3                                                  |
+| GPU                     | Mali-G72 MP3, 700MHz                                          |
 | Memory                  | 4 GB, 6 GB, 933 MHz                                           |
 | Shipped Android version | 10                                                            |
 | Storage                 | 128 GB, 64 GB                                                 |

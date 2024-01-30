@@ -252,6 +252,7 @@ on property:ro.crypto.state=unsupported
     stop vendor.keymaster-4-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
+    stop IServiceManager
     stop hwservicemanager
     stop wait_for_keymaster
 
@@ -266,6 +267,7 @@ on property:ro.crypto.state=unencrypted
     stop vendor.keymaster-4-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
+    stop IServiceManager
     stop hwservicemanager
     stop wait_for_keymaster
 

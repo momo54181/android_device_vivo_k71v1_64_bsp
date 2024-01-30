@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_k71v1_64_bsp.mk
+    $(LOCAL_DIR)/twrp_k71v1_64_bsp.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_k71v1_64_bsp-user \
-    omni_k71v1_64_bsp-userdebug \
-    omni_k71v1_64_bsp-eng
+    twrp_k71v1_64_bsp-user \
+    twrp_k71v1_64_bsp-userdebug \
+    twrp_k71v1_64_bsp-eng

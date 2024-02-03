@@ -15,7 +15,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, device/vivo/k71v1_64_bsp/device.mk)
 
 PRODUCT_DEVICE := k71v1_64_bsp
-PRODUCT_NAME := twrp_k71v1_64_bsp
+PRODUCT_NAME := omni_k71v1_64_bsp
 PRODUCT_BRAND := vivo
 PRODUCT_MODEL := vivo 1806
 PRODUCT_MANUFACTURER := vivo

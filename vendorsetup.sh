@@ -5,4 +5,5 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_lunch_combo twrp_k71v1_64_bsp-eng
+add_lunch_combo omni_k71v1_64_bsp-userdebug
+add_lunch_combo omni_k71v1_64_bsp-eng

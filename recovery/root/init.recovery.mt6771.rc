@@ -1,3 +1,12 @@
+on early-init
+    mkdir /vendor/firmware_mnt
+    symlink /vendor/firmware_mnt /firmware
+    mkdir /mnt/vendor
+    mkdir /mnt/vendor/persist
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    symlink /mnt/vendor/persist /persist
+
 on init
     mount ext4 /dev/block/platform/bootdevice/by-name/cust /oem ro barrier=1 discard
     mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist rw barrier=1 discard
@@ -40,9 +49,10 @@ on post-fs-data
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
 
-    service logd-reinit /system/bin/logd --reinit
-    oneshot
+service ashmemd /system/bin/ashmemd
     disabled
+    user root
+    group root
     seclabel u:r:recovery:s0
 
 service servicemanager /system/bin/servicemanager
@@ -62,7 +72,38 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     writepid /dev/cpuset/system-background/tasks
     seclabel u:r:recovery:s0
 
+service vivo-capacity_key-hal-1-0 /vendor/bin/hw/vendor.vivo.hardware.capacity_key@1.0-service
+    disabled
+    user root
+    seclabel u:r:recovery:s0
+
+service vendor.sectee /vendor/bin/hw/vendor.vivo.hardware.sectee@1.0-service
+    disabled
+    user root
+    seclabel u:r:recovery:s0
+
+
+on property:recovery.emergent_mode=1
+    start flash_light
+
+# just boot in fastboot mode, fastbootd service need vendor.boot-hal-1-0 & health-hal-2-0
+on property:recovery.fastboot_mode=1
+    start vendor.boot-hal-1-0
+    start health-hal-2-0
+
 service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
+    disabled
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
+
+service keymaster-4-0 /vendor/bin/android.hardware.keymaster@4.0-service
+    disabled
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
+
+service vendor.keymaster-4-0-trustonic /vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic
     disabled
     user root
     group root drmrpc
@@ -85,6 +126,19 @@ service guardianangle  /system/bin/guardianangle
     user root
     seclabel u:r:recovery:s0
 
+service tee-1-0 /vendor/bin/hw/vendor.trustonic.tee@1.0-service
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service teeregistry-1-0 /vendor/bin/hw/vendor.trustonic.teeregistry@1.0-service
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+
 # Start Daemon (Registry directories should already be present)
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
     -r /vendor/app/mcRegistry/06090000000000000000000000000000.drbin \
@@ -105,16 +159,24 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
     -r /vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin
     seclabel u:r:recovery:s0
 
-service logd-reinit /system/bin/logd --reinit
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
-
-service ashmemd /system/bin/ashmemd
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
+# t-Drv naming
+# 020f0000000000000000000000000000.drbin : utils
+# 05120000000000000000000000000000.drbin : sec
+# 070b0000000000000000000000000000.drbin : play
+# 020b0000000000000000000000000000.drbin : cmdq
+# 05070000000000000000000000000000.drbin : goodix_fp
+# 030b0000000000000000000000000000.drbin : spi
+# 030c0000000000000000000000000000.drbin : spi5
+# 07070000000000000000000000000000.drbin : MtkH264Venc
+# 07060000000000000000000000007169.drbin : MtkH264Vdec
+# 5020170115e016302017012521300000.drbin : drm_hdcp_common
+# 40188311faf343488db888ad39496f9a.drbin : widevine
+# 070c0000000000000000000000000000.drbin : IRIS_GPIO
+# 090b0000000000000000000000000000.drbin : IRIS_I2C
+# 0f5eed3c3b5a47afacca69a84bf0efad.drbin : isp
+# 07407000000000000000000000000000.drbin : sensor
+# 04020000000000000000000000000000.drbin : fpc
+# 06090000000000000000000000000000.drbin : drm keyinstall
 
 on property:hwservicemanager.ready=true
 

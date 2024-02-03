@@ -9,9 +9,10 @@ on early-init
 
 on init
     mount ext4 /dev/block/platform/bootdevice/by-name/cust /oem ro barrier=1 discard
-    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist rw barrier=1 discard
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /persist ro barrier=1 discard
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/system
+    symlink /persist /mnt/vendor/persist
     symlink /mnt/vendor/persist /vendor/persist
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.k71v1_64_bsp.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.mt6771.so
@@ -22,7 +23,6 @@ on init
     start servicemanager
     start hwservicemanager
     start vndservicemanager
-    start ashmemd
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
@@ -48,12 +48,6 @@ on post-fs-data
     # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
-
-service ashmemd /system/bin/ashmemd
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
 
 service servicemanager /system/bin/servicemanager
     disabled

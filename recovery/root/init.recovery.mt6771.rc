@@ -15,6 +15,7 @@ on init
     start servicemanager
     start hwservicemanager
     start vndservicemanager
+    start ashmemd
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
@@ -111,6 +112,11 @@ service logd-reinit /system/bin/logd --reinit
     disabled
     seclabel u:r:recovery:s0
 
+service ashmemd /system/bin/ashmemd
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 on property:hwservicemanager.ready=true
 

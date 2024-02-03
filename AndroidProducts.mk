@@ -8,7 +8,4 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_k71v1_64_bsp.mk
 
-COMMON_LUNCH_CHOICES := \
-    twrp_k71v1_64_bsp-user \
-    twrp_k71v1_64_bsp-userdebug \
-    twrp_k71v1_64_bsp-eng
+COMMON_LUNCH_CHOICES := twrp_k71v1_64_bsp-eng

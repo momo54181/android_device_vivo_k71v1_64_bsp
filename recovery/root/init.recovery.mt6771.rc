@@ -72,15 +72,6 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     writepid /dev/cpuset/system-background/tasks
     seclabel u:r:recovery:s0
 
-service tombstoned /sbin/tombstoned
-    user root
-    group root
-    socket tombstoned_crash seqpacket 0666 system system
-    socket tombstoned_intercept seqpacket 0666 system system
-    socket tombstoned_java_trace seqpacket 0666 system system
-    writepid /dev/cpuset/system-background/tasks
-    seclabel u:r:recovery:s0
-
 service vivo-capacity_key-hal-1-0 /vendor/bin/hw/vendor.vivo.hardware.capacity_key@1.0-service
     disabled
     user root

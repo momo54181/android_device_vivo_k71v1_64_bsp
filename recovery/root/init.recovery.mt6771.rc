@@ -9,7 +9,7 @@ on early-init
 
 on init
     mount ext4 /dev/block/platform/bootdevice/by-name/cust /oem ro barrier=1 discard
-    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist rw barrier=1 discard
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist ro barrier=1 discard
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/system
     symlink /mnt/vendor/persist /vendor/persist
@@ -22,7 +22,7 @@ on init
     start servicemanager
     start hwservicemanager
     start vndservicemanager
-    start ashmemd
+    start guardianangle
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
@@ -41,19 +41,13 @@ on post-fs
     mkdir /mnt/vendor/persist/mcRegistry 0771 system system
 
     write /proc/bootprof "MOBICORE: Starting mcDriverDaemon"
-    start mobicore
+    #start mobicore
 
 on post-fs-data
 
     # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
-
-service ashmemd /system/bin/ashmemd
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
 
 service servicemanager /system/bin/servicemanager
     disabled
@@ -71,20 +65,6 @@ service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
     user root
     writepid /dev/cpuset/system-background/tasks
     seclabel u:r:recovery:s0
-
-service vivo-capacity_key-hal-1-0 /vendor/bin/hw/vendor.vivo.hardware.capacity_key@1.0-service
-    disabled
-    user root
-    seclabel u:r:recovery:s0
-
-service vendor.sectee /vendor/bin/hw/vendor.vivo.hardware.sectee@1.0-service
-    disabled
-    user root
-    seclabel u:r:recovery:s0
-
-
-on property:recovery.emergent_mode=1
-    start flash_light
 
 # just boot in fastboot mode, fastbootd service need vendor.boot-hal-1-0 & health-hal-2-0
 on property:recovery.fastboot_mode=1
@@ -124,18 +104,6 @@ service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
 service guardianangle  /system/bin/guardianangle
     disabled
     user root
-    seclabel u:r:recovery:s0
-
-service tee-1-0 /vendor/bin/hw/vendor.trustonic.tee@1.0-service
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
-
-service teeregistry-1-0 /vendor/bin/hw/vendor.trustonic.teeregistry@1.0-service
-    disabled
-    user root
-    group root
     seclabel u:r:recovery:s0
 
 
@@ -179,24 +147,21 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
 on property:hwservicemanager.ready=true
-
     start gatekeeper-1-0
     start vendor.keymaster-3-0-trustonic
-    start guardianangle
-    
 
 on property:ro.crypto.state=unsupported
-
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    stop guardianangle
 
 on property:ro.crypto.state=unencrypted
-
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    stop guardianangle
     
 

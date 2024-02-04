@@ -9,10 +9,9 @@ on early-init
 
 on init
     mount ext4 /dev/block/platform/bootdevice/by-name/cust /oem ro barrier=1 discard
-    mount ext4 /dev/block/platform/bootdevice/by-name/persist /persist ro barrier=1 discard
+    mount ext4 /dev/block/platform/bootdevice/by-name/persist /mnt/vendor/persist ro barrier=1 discard
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/system
-    symlink /persist /mnt/vendor/persist
     symlink /mnt/vendor/persist /vendor/persist
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.k71v1_64_bsp.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.mt6771.so

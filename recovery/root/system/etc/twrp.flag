@@ -5,11 +5,10 @@
 /system_image             emmc     /dev/block/platform/bootdevice/by-name/system        flags=display="System image";flashimg=1;
 /vendor                   ext4     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor";wipeingui;
 /vendor_image             emmc     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor image";flashimg=1;
-/data                     ext4     /dev/block/platform/bootdevice/by-name/userdata      flags=encryptable=/dev/block/platform/bootdevice/by-name/metadata
+/data			          ext4     /dev/block/dm-0									    flags=altdevice=/dev/block/platform/bootdevice/by-name/userdata;encryptable=/dev/block/platform/bootdevice/by-name/metadata
 /cache                    ext4     /dev/block/platform/bootdevice/by-name/cache         flags=display=cache
 /nvdata                   ext4     /dev/block/platform/bootdevice/by-name/nvdata        flags=display=nvdata;backup=1;flashimg=1;
 /nvcfg                    ext4     /dev/block/platform/bootdevice/by-name/nvcfg         flags=display=nvcfg;backup=1;flashimg=1;
-/persist                  ext4     /dev/block/platform/bootdevice/by-name/persist       flags=display=persist
 /persist_image            emmc     /dev/block/platform/bootdevice/by-name/persist       flags=display="Persist image";backup=1;flashimg=1;
 /persistent               emmc     /dev/block/platform/bootdevice/by-name/frp           flags=display=persistent;backup=1;flashimg=1;
 /nvram                    emmc     /dev/block/platform/bootdevice/by-name/nvram         flags=display=nvram;backup=1;flashimg=1;

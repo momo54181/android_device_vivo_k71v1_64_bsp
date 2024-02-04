@@ -13,7 +13,10 @@ on init
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/system
     symlink /mnt/vendor/persist /vendor/persist
+    symlink /vendor/lib64/hw/kmsetkey.trustonic.so   /vendor/lib64/hw/kmsetkey.default.so
+    symlink /vendor/lib64/hw/llibSoftGatekeeper   /vendor/lib64/hw/gatekeeper.default.so
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.k71v1_64_bsp.so
+    symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.mt6771.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.mt6771.so
 
     setprop sys.usb.configfs 1

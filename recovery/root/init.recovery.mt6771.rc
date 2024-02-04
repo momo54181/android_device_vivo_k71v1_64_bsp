@@ -158,3 +158,11 @@ on property:ro.crypto.state=unencrypted
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+
+on property:twrp.decrypt.done=true
+    stop mobicore
+    stop keymaster-3-0
+    stop keymaster-4-0
+    stop gatekeeper-1-0
+    stop servicemanager
+    stop hwservicemanager

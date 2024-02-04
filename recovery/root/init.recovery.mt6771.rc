@@ -77,6 +77,17 @@ service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
     group root drmrpc
     seclabel u:r:recovery:s0
 
+service keymaster-4-0 /vendor/bin/android.hardware.keymaster@4.0-service
+    disabled
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
+
+service vendor.keymaster-4-0-trustonic /vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic
+    disabled
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
 
 service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
     disabled

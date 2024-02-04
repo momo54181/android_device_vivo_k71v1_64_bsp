@@ -13,10 +13,7 @@ on init
     mkdir /mnt/vendor/persist 0771 system system
     mkdir /mnt/system
     symlink /mnt/vendor/persist /vendor/persist
-    symlink /vendor/lib64/hw/kmsetkey.trustonic.so   /vendor/lib64/hw/kmsetkey.default.so
-    symlink /vendor/lib64/hw/llibSoftGatekeeper   /vendor/lib64/hw/gatekeeper.default.so
     symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.k71v1_64_bsp.so
-    symlink /vendor/lib64/hw/libMcGatekeeper.so   /vendor/lib64/hw/gatekeeper.mt6771.so
     symlink /vendor/lib64/hw/libMcTeeKeymaster.so /vendor/lib64/hw/keystore.mt6771.so
 
     setprop sys.usb.configfs 1
@@ -25,7 +22,6 @@ on init
     start servicemanager
     start hwservicemanager
     start vndservicemanager
-    start guardianangle
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP
@@ -80,18 +76,6 @@ service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
     group root drmrpc
     seclabel u:r:recovery:s0
 
-service keymaster-4-0 /vendor/bin/android.hardware.keymaster@4.0-service
-    disabled
-    user root
-    group root drmrpc
-    seclabel u:r:recovery:s0
-
-service vendor.keymaster-4-0-trustonic /vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic
-    disabled
-    user root
-    group root drmrpc
-    seclabel u:r:recovery:s0
-
 service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
     disabled
     user root
@@ -103,12 +87,6 @@ service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
     user root
     group root
     seclabel u:r:recovery:s0
-
-service guardianangle  /system/bin/guardianangle
-    disabled
-    user root
-    seclabel u:r:recovery:s0
-
 
 # Start Daemon (Registry directories should already be present)
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
@@ -158,13 +136,10 @@ on property:ro.crypto.state=unsupported
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    stop guardianangle
 
 on property:ro.crypto.state=unencrypted
     stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    stop guardianangle
     
-

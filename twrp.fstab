@@ -22,6 +22,7 @@
 /logo                     emmc     /dev/block/platform/bootdevice/by-name/logo          flags=display=logo;backup=1;flashimg=1;
 /odmdtbo                  emmc     /dev/block/platform/bootdevice/by-name/odmdtbo       flags=display=odmdtbo;backup=1;flashimg=1;
 /dtbo                     emmc     /dev/block/platform/bootdevice/by-name/dtbo          flags=display=dtbo;backup=1;flashimg=1;
-/external_sd              vfat     /dev/block/mmcblk1p1    /dev/block/mmcblk1           flags=display="Micro SDCard";storage;wipeingui;removable
 /metadata	              emmc	   /dev/block/platform/bootdevice/by-name/metadata
 /frp		              emmc	   /dev/block/platform/bootdevice/by-name/frp           flags=display="Frp";backup=1
+/external_sd              vfat     /dev/block/mmcblk1p1    /dev/block/mmcblk1           flags=display="Micro SDCard";storage;wipeingui;removable
+/usbotg			          auto     /dev/block/sda1			/dev/block/sda				flags=display="Usb-Otg";storage;removable;backup=0;wipeingui

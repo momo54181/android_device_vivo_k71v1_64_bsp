@@ -97,6 +97,7 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 2000
 TW_DEFAULT_LANGUAGE := zh_CN
+TW_EXCLUDE_DEFAULT_USB_INIT := true
 
 # Crypto
 TW_INCLUDE_CRYPTO := true

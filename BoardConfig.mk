@@ -106,7 +106,7 @@ TW_MAX_BRIGHTNESS := 255
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 2000
+TW_DEFAULT_BRIGHTNESS := 1600
 TW_DEFAULT_LANGUAGE := zh_CN
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 

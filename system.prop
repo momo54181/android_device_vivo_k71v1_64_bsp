@@ -1,3 +1,2 @@
-ro.vndk.version=29
 ro.hardware.gatekeeper=k71v1_64_bsp
 ro.build.product=k71v1_64_bsp

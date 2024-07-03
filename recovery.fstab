@@ -3,26 +3,26 @@
 /oem                      ext4     /dev/block/platform/bootdevice/by-name/cust          flags=display=oem
 /system                   ext4     /dev/block/platform/bootdevice/by-name/system        flags=display="System";wipeingui;backup=1
 /system_image             emmc     /dev/block/platform/bootdevice/by-name/system        flags=display="System image";flashimg=1;
-/vendor                   ext4     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor";wipeingui;
+/vendor                   ext4     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor";wipeingui;backup=1
 /vendor_image             emmc     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor image";flashimg=1;
 /data			          ext4     /dev/block/dm-0				              	        flags=altdevice=/dev/block/platform/bootdevice/by-name/userdata;encryptable=/dev/block/platform/bootdevice/by-name/metadata
 /cache                    ext4     /dev/block/platform/bootdevice/by-name/cache         flags=display=cache
 /nvdata                   ext4     /dev/block/platform/bootdevice/by-name/nvdata        flags=display=nvdata;backup=1;flashimg=1;
-/nvcfg                    ext4     /dev/block/platform/bootdevice/by-name/nvcfg         flags=display=nvcfg;backup=1;flashimg=1;
+/nvcfg                    ext4     /dev/block/platform/bootdevice/by-name/nvcfg         flags=display=nvcfg;
 /persist_image            emmc     /dev/block/platform/bootdevice/by-name/persist       flags=display="Persist image";backup=1;flashimg=1;
 /persistent               emmc     /dev/block/platform/bootdevice/by-name/frp           flags=display=persistent;backup=1;flashimg=1;
-/nvram                    emmc     /dev/block/platform/bootdevice/by-name/nvram         flags=display=nvram;backup=1;flashimg=1;
-/protect_f                ext4     /dev/block/platform/bootdevice/by-name/protect1      flags=display="Protect F";backup=1
-/protect_s                ext4     /dev/block/platform/bootdevice/by-name/protect2      flags=display="Protect S";backup=1
-/bootloader               emmc     /dev/block/platform/bootdevice/by-name/lk            flags=display=bootloader
-/bootloader2              emmc     /dev/block/platform/bootdevice/by-name/lk2           flags=display=bootloader2
+/nvram                    emmc     /dev/block/platform/bootdevice/by-name/nvram         flags=display=nvram;
+/protect_f                ext4     /dev/block/platform/bootdevice/by-name/protect1      flags=display="Protect F";
+/protect_s                ext4     /dev/block/platform/bootdevice/by-name/protect2      flags=display="Protect S";
+/bootloader               emmc     /dev/block/platform/bootdevice/by-name/lk            flags=display=bootloaderbackup=1;flashimg=1;
+/bootloader2              emmc     /dev/block/platform/bootdevice/by-name/lk2           flags=display=bootloader2backup=1;flashimg=1;
 /misc                     emmc     /dev/block/platform/bootdevice/by-name/para          flags=display=misc
 /recovery                 emmc     /dev/block/platform/bootdevice/by-name/recovery      flags=display=recovery;backup=1;flashimg=1;
 /boot                     emmc     /dev/block/platform/bootdevice/by-name/boot          flags=display=boot;backup=1;flashimg=1;
 /logo                     emmc     /dev/block/platform/bootdevice/by-name/logo          flags=display=logo;backup=1;flashimg=1;
-/odmdtbo                  emmc     /dev/block/platform/bootdevice/by-name/odmdtbo       flags=display=odmdtbo;backup=1;flashimg=1;
-/dtbo                     emmc     /dev/block/platform/bootdevice/by-name/dtbo          flags=display=dtbo;backup=1;flashimg=1;
+/odmdtbo                  emmc     /dev/block/platform/bootdevice/by-name/odmdtbo       flags=display=odmdtbo;
+/dtbo                     emmc     /dev/block/platform/bootdevice/by-name/dtbo          flags=display=dtbo;
 /metadata	              emmc	   /dev/block/platform/bootdevice/by-name/metadata
-/frp		              emmc	   /dev/block/platform/bootdevice/by-name/frp           flags=display="Frp";backup=1
+/frp		              emmc	   /dev/block/platform/bootdevice/by-name/frp           flags=display="Frp";backup=1;flashimg=1;
 /external_sd              vfat     /dev/block/mmcblk1p1    /dev/block/mmcblk1           flags=display="Micro SDCard";storage;wipeingui;removable
 /usbotg			          auto     /dev/block/sda1			/dev/block/sda				flags=display="Usb-Otg";storage;removable;backup=0;wipeingui

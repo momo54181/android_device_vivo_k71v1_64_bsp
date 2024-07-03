@@ -16,9 +16,14 @@
 1. OTG Works
 2. MTP
 
-## Downloads
-
-https://github.com/momo54181/android_device_vivo_k71v1_64_bsp/releases
+```
+#
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```
 
 ### Device specifications
 

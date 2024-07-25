@@ -123,3 +123,10 @@ on property:ro.crypto.state=unencrypted
     stop hwservicemanager
     stop keymaster-3-0
     stop gatekeeper-1-0
+
+on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
+    stop mobicore
+    stop servicemanager
+    stop hwservicemanager
+    stop keymaster-3-0
+    stop gatekeeper-1-0

@@ -1,4 +1,4 @@
-# Android device tree for vivo V11i Y97 Z3i (k71v1_64_bsp)
+# Android device tree for vivo V11i Z3i Y97 (k71v1_64_bsp)
 ==========================================
 
 ## Status
@@ -22,7 +22,7 @@ https://github.com/momo54181/android_device_vivo_k71v1_64_bsp/releases
 
 ### Device specifications
 
-| Device                  |         Vivo V11i                                             |
+| Device                  |         Vivo V11i Z3i Y97                                     |
 | ----------------------: | :------------------------------------------------------------ |
 | SoC                     | MediaTek Helio P60 (MT6771)                                   |
 | CPU                     | 4x 2.0 GHz ARM Cortex-A73, 4x 2.0 GHz ARM Cortex-A53          |

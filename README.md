@@ -1,4 +1,4 @@
-# Android device tree for vivo vivo 1806 (k71v1_64_bsp)
+# Android device tree for vivo V11i Y97 Z3i (k71v1_64_bsp)
 ==========================================
 
 ## Status
@@ -6,7 +6,7 @@
 **Working**:
 
 1. Decryption
-2. Backup and Restore
+2. Backup 和 Restore
 3. Flash Stock ROM
 4. Flash GSI or Custom ROMs
 5. Screenshots now renders correct color
@@ -29,7 +29,7 @@ https://github.com/momo54181/android_device_vivo_k71v1_64_bsp/releases
 | GPU                     | Arm Mali-G72, 700MHz                                          |
 | Memory                  | 4 GB, 6 GB, 1800 MHz                                          |
 | Shipped Android version | Android 8.1,upgradable to Android 10.0                        |
-| Storage                 | 128 GB, 64 GB                                                 |
+| Storage                 | 64 GB, 128 GB                                                 |
 | Battery                 | Non-removable Li-Ion 3240 mAh battery                         |
 | Dimensions              | 75.63 mm x 155.97 mm x 8.1 mm                                 |
 | Display                 | 6.3 in, IPS, 1080 x 2280 pixels                               |

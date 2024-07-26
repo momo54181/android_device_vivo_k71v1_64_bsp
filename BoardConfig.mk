@@ -100,7 +100,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true

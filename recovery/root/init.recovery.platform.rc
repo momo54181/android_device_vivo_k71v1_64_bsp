@@ -98,17 +98,11 @@ on property:recovery.fastboot_mode=1
     start vendor.boot-hal-1-0
     start health-hal-2-0
 
-on property:crypto.ready=1
+on property:ro.crypto.state=encrypted
     start vendor.keymaster-3-0-trustonic
     start keymaster-3-0
     start gatekeeper-1-0
 
-on property:crypto.ready=0
-    stop mobicore
-    stop servicemanager
-    stop hwservicemanager
-    stop keymaster-3-0
-    stop gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop mobicore

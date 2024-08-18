@@ -24,34 +24,16 @@ on post-fs-data
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
 
-service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
-    disabled
-    user root
-    group root drmrpc
-    seclabel u:r:recovery:s0
-
-service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
-    disabled
-    user root
-    group root drmrpc
-    seclabel u:r:recovery:s0
-
 service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
     disabled
     user root
     group root
     seclabel u:r:recovery:s0
 
-service vendor.boot-hal-1-0 /vendor/bin/hw/android.hardware.boot@1.0-service
+service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
     disabled
     user root
-    group root
-    seclabel u:r:recovery:s0
-
-service health-hal-2-0 /vendor/bin/hw/android.hardware.health@2.0-service
-    disabled
-    user root
-    group root
+    group root drmrpc
     seclabel u:r:recovery:s0
 
 # Start Daemon (Registry directories should already be present)
@@ -93,13 +75,7 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 04020000000000000000000000000000.drbin : fpc
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
-# just boot in fastboot mode, fastbootd service need vendor.boot-hal-1-0 & health-hal-2-0
-on property:recovery.fastboot_mode=1
-    start vendor.boot-hal-1-0
-    start health-hal-2-0
-
 on property:ro.crypto.state=encrypted
-    start vendor.keymaster-3-0-trustonic
     start keymaster-3-0
     start gatekeeper-1-0
 

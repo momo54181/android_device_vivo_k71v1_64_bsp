@@ -106,7 +106,6 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
-TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager keymaster-3-0
 TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 
 # Debug

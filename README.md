@@ -10,11 +10,11 @@
 3. Flash Stock ROM
 4. Flash GSI or Custom ROMs
 5. Screenshots now renders correct color
+6. MTP
 
 **Not working**:
 
 1. OTG Works
-2. MTP
 
 ## Downloads
 

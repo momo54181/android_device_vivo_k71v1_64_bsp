@@ -107,10 +107,11 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_DEFAULT_LANGUAGE := zh_CN
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1700
+TW_Y_OFFSET := 74
 
 # Crypto
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
+#TW_INCLUDE_CRYPTO := true
+TW_DEVICE_VERSION := 1806-A12 by Momo5418 (nodecrypt)
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true

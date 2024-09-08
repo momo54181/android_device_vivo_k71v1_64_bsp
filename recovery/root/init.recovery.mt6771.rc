@@ -1,4 +1,5 @@
 
+import /init.recovery.platform.rc
 import /init.recovery.touch.rc
 
 on init

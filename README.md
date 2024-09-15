@@ -5,7 +5,7 @@
 
 **Working**:
 
-1. Backup 和 Restore
+1. Backup and Restore
 2. Flash Stock ROM
 3. Flash GSI or Custom ROMs
 4. Screenshots now renders correct color

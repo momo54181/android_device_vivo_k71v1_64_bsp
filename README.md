@@ -12,7 +12,7 @@
 5. Screenshots now renders correct color
 6. MTP
 
-**Not working**:
+**Not tested**:
 
 1. OTG Works
 

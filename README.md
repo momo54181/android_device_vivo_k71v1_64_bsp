@@ -11,10 +11,11 @@
 4. Screenshots now renders correct color
 5. MTP
 
-**Not working**:
+**Not tested**:
 
 1. OTG Works
-2. Decryption
+**Unsupported**：
+1. Decryption
 
 ## Downloads
 

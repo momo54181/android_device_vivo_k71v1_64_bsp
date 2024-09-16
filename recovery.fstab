@@ -1,6 +1,6 @@
 # Android fstab file.
 # <mount_point>           <fstype>  <device>        <device2>                           <flags>
-/oem                      ext4     /dev/block/platform/bootdevice/by-name/cust          flags=display=oem;backup=1;flashimg=1;
+/oem                      ext4     /dev/block/platform/bootdevice/by-name/cust          flags=display=Oem;backup=1;flashimg=1;
 /system                   ext4     /dev/block/platform/bootdevice/by-name/system        flags=display="System";wipeingui;backup=1
 /system_image             emmc     /dev/block/platform/bootdevice/by-name/system        flags=display="System image";flashimg=1;
 /vendor                   ext4     /dev/block/platform/bootdevice/by-name/vendor        flags=display="Vendor";wipeingui;backup=1

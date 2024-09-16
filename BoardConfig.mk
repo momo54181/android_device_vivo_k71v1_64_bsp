@@ -95,7 +95,7 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1700
 TW_DEFAULT_LANGUAGE := zh_CN
-TW_Y_OFFSET := 74
+# TW_Y_OFFSET := 74
 TW_EXCLUDE_TWRPAPP := false
 TW_DEVICE_VERSION := 1806-A10 by Momo5418 (decrypt)
 
@@ -112,3 +112,8 @@ TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# OrangeFox Recovery
+OF_MAINTAINER := Momo5418
+OF_FLASHLIGHT_ENABLE := false
+OF_MAINTAINER_AVATAR := device/vivo/k71v1_64_bsp/Maintainer.png

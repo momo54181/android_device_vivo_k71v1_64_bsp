@@ -84,9 +84,6 @@ PLATFORM_VERSION := 16.1.0
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
-# FASTAB
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true

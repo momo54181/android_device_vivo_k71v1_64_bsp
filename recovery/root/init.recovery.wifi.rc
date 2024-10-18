@@ -1,0 +1,88 @@
+################################################################################
+# wuzengshun add for recovery wifi                                             #
+################################################################################
+#for wifi
+
+on init
+    export ANDROID_DNS_MODE local
+
+    mkdir /system/etc
+    mkdir /data/misc
+    mkdir /data/misc/wifi
+    mkdir /data/misc/wifi 0777
+    mkdir /data/misc/wifi/sockets 0777
+    mkdir /data/misc/wifi/wpa_supplicant 0777
+
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
+    symlink /system/etc/firmware /etc/firmware
+    #symlink /sbin /system/etc/wifi
+    symlink /vendor /system/vendor
+    symlink /system/bin/toybox /system/bin/insmod
+    symlink /vendor/firmware /vendor/rfs/msm/mpss/readonly/vendor/firmware
+
+# load wmt_drv
+#on boot
+#    insmod /vendor/lib/modules/wmt_drv.ko
+
+# load wifi chrdev driver and wlan driver after wmt_loader finish
+on property:vendor.connsys.driver.ready=yes
+    insmod /vendor/lib/modules/wmt_chrdev_wifi.ko
+    insmod /vendor/lib/modules/wlan_drv_${ro.vendor.wlan.gen}.ko
+    start wlan_assistant
+
+service wmtLoader /system/bin/wmt_loader
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service conn_launcher /system/bin/wmt_launcher -p /vendor/firmware/
+    disabled
+    seclabel u:r:recovery:s0
+
+service wlan_assistant /system/bin/wlan_assistant
+    user root
+    group root system gps inet
+    seclabel u:r:recovery:s0
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -dd -O/data/vendor/wifi/wpa/sockets -c/cache/recovery/wpa_supplicant.conf
+    disabled
+    seclabel u:r:hal_wifi_supplicant_default:s0
+
+service dhcpcd /system/bin/dhcpcd wlan0
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+#step 1
+on property:survival.start.service=true
+    insmod /vendor/lib/modules/wmt_drv.ko
+    start wmtLoader
+    start conn_launcher
+    start irsc_util
+
+#step 2
+on property:wmtwifi.power.enable=true
+    write /dev/wmtWifi 1
+
+on property:wmtwifi.power.enable=false
+    write /dev/wmtWifi 0
+
+#step 3
+on property:supplicant.status=running
+    start wpa_supplicant
+
+on property:supplicant.status=stopped
+    stop wpa_supplicant
+
+#step 4
+#on property:dhcpcd.status=running
+#    start dhcpcd
+
+#on property:dhcpcd.status=stopped
+#    stop dhcpcd
+
+#################################################
+#For WLAN function end
+#################################################

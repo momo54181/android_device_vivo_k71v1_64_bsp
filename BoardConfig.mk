@@ -120,3 +120,32 @@ TW_INCLUDE_CRYPTO := true
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+#SHRP Device Specific Properties
+
+# Path of your SHRP Tree
+SHRP_PATH := device/vivo/k71v1_64_bsp
+
+# Maintainer name *
+SHRP_MAINTAINER := Momo5418
+
+#Official
+SHRP_OFFICIAL=true
+
+# Device codename *
+SHRP_DEVICE_CODE := k71v1_64_bsp
+
+# Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
+SHRP_REC_TYPE := Treble
+
+# Recovery Type (It can be A/B or A_only) [Only for About Section] *
+SHRP_DEVICE_TYPE := A_only
+
+SHRP_EXPRESS := true
+SHRP_DARK := true
+SHRP_EDL_MODE := 0
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb-otg
+SHRP_FLASH := 0
+SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery

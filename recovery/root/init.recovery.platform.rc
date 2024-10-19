@@ -24,17 +24,30 @@ on post-fs-data
     # Key Installation
     mkdir /data/vendor/key_provisioning 0771 system system
 
-service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
 
 service keymaster-3-0 /vendor/bin/android.hardware.keymaster@3.0-service
     disabled
     user root
     group root drmrpc
     seclabel u:r:recovery:s0
+
+service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster@3.0-service.trustonic
+    disabled
+    user root
+    group root drmrpc
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /vendor/bin/android.hardware.gatekeeper@1.0-service
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
+    user root
+    writepid /dev/cpuset/system-background/tasks
+    seclabel u:r:recovery:s0
+
 
 # Start Daemon (Registry directories should already be present)
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
@@ -76,7 +89,8 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 # 06090000000000000000000000000000.drbin : drm keyinstall
 
 on property:ro.crypto.state=encrypted
-    start keymaster-3-0
+    #start keymaster-3-0
+    start vendor.keymaster-3-0-trustonic
     start gatekeeper-1-0
 
 
@@ -84,19 +98,20 @@ on property:ro.crypto.state=unsupported
     stop mobicore
     stop servicemanager
     stop hwservicemanager
-    stop keymaster-3-0
+    #stop keymaster-3-0
+    stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
     stop servicemanager
     stop hwservicemanager
-    stop keymaster-3-0
+    stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
     stop mobicore
     stop servicemanager
     stop hwservicemanager
-    stop keymaster-3-0
+    stop vendor.keymaster-3-0-trustonic
     stop gatekeeper-1-0

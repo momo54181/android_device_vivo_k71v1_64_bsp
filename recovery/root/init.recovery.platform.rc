@@ -78,13 +78,11 @@ service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry 
 on property:ro.crypto.state=encrypted
     start vendor.keymaster-3-0-trustonic
 
-
 on property:ro.crypto.state=unsupported
     stop mobicore
     stop servicemanager
     stop hwservicemanager
     stop vendor.keymaster-3-0-trustonic
-    stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop mobicore

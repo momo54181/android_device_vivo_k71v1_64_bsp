@@ -4,6 +4,7 @@ import /init.recovery.platform.rc
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
+    setprop prepdecrypt.loglevel 2
 
 on fs && property:ro.debuggable=0
     # distinguish USB shoulde connect or not, i.e. CDP vs SDP

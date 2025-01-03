@@ -29,13 +29,6 @@ service vendor.keymaster-3-0-trustonic /vendor/bin/hw/android.hardware.keymaster
     group root drmrpc
     seclabel u:r:recovery:s0
 
-
-service vndservicemanager /vendor/bin/vndservicemanager /dev/vndbinder
-    user root
-    writepid /dev/cpuset/system-background/tasks
-    seclabel u:r:recovery:s0
-
-
 # Start Daemon (Registry directories should already be present)
 service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry \
 	-r /vendor/app/mcRegistry/06090000000000000000000000000000.drbin \
@@ -90,7 +83,7 @@ on property:ro.crypto.state=unencrypted
     stop hwservicemanager
     stop vendor.keymaster-3-0-trustonic
 
-on property:twrp.decrypt.done=true && property:twrp.all.users.decrypted=true
+on property:twrp.decrypt.done=true
     stop mobicore
     stop servicemanager
     stop hwservicemanager
